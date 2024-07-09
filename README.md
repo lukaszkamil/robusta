@@ -1,6 +1,6 @@
 # playwright-automation
 
-Automated tests for web applications
+Automated tests for ecommerce shop
 
 ## Setup
 

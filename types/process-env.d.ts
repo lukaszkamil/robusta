@@ -5,6 +5,7 @@ declare global {
       [key: string]: string | undefined;
       APPLICATION_URL: string;
       ALREADY_EXISTS_PASSOWRD: string;
+      TEST_ENVIRONMENT: "test" | "stage" | "prod";
     }
   }
 }

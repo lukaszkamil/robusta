@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Automation typescript tests",
   "scripts": {
-    "test": "yarn playwright test",
+    "test": "npx playwright test",
     "lint": "eslint --cache --fix"
   },
   "devDependencies": {

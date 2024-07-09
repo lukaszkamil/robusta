@@ -16,6 +16,7 @@ export class HomePage extends BasePage {
   recommendSection = this.page.getByTestId("recommendSection");
   forYouSection = this.page.getByTestId("forYouSection");
   hotDealBlock = this.page.getByTestId("hotDealBlock");
+  searchProductInput = this.page.getByTestId("productSeatchInput");
 
   async open() {
     await this.page.goto(process.env.APPLICATION_URL, { waitUntil: "load" });
