@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import HomePage from "../pageObjects/HomePage";
 import LogInSignInPage from "../pageObjects/LogInSignInPage";
-import SignInPage from "../pageObjects/SignInPage";
+import SignInPage, { LoginSigninPage } from "../pageObjects/SignInPage";
 import { environmentData } from "../utils/data/index";
 
 test.describe("User is on a main app page", () => {
@@ -43,15 +43,14 @@ test.describe("User is on a registration page", () => {
   test("User is able to register new account successfully", async ({
     page,
   }) => {
+    const email = `qa_automated_tests${Date.now()}@robusta.com`;
+    const password = `${environmentData.existedUser.password}${Date.now()}`;
+
     const signInPage = new SignInPage(page);
     await signInPage.firstNameInput.fill("John");
     await signInPage.secondNameInput.fill("What");
-    await signInPage.emailInput.fill(
-      `qa_automated_tests${Date.now()}@robusta.com`
-    );
-    await signInPage.passwordWrapper.fill(
-      `${environmentData.existedUser.password}${Date.now()}`
-    );
+    await signInPage.emailInput.fill(email);
+    await signInPage.passwordWrapper.fill(password);
 
     await signInPage.signInButton.click();
     await expect(signInPage.registerSuccessMessage).toBeVisible();
@@ -59,6 +58,11 @@ test.describe("User is on a registration page", () => {
     const logInSignInPage = new LogInSignInPage(page);
 
     await logInSignInPage.shouldBeOpen();
+    await logInSignInPage.emailInput.fill(email);
+    await logInSignInPage.passwordWrapper.fill(password);
+
+    const homePage = new HomePage(page);
+    await homePage.shouldBeOpen();
   });
 
   test("User is not able to register to an already existed email address", async ({

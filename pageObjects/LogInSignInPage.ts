@@ -10,6 +10,11 @@ export class LogInSignInPage extends BasePage {
   }
 
   logInSection = this.page.getByTestId("logInSection");
+  logInForm = this.page.getByTestId("logInForm");
+  emailWrapper = this.logInForm.locator("#email");
+  emailInput = this.emailWrapper.locator("input");
+  passwordWrapper = this.logInForm.locator("#password");
+  passwordInput = this.passwordWrapper.locator("input");
   logInButton = this.logInSection.getByTestId("logInButton");
   signInSection = this.page.getByTestId("signInSection");
   signInButton = this.signInSection.locator(".actionButton");
