@@ -1,0 +1,17 @@
+{
+  "name": "automation-tests",
+  "version": "1.0.0",
+  "description": "Automation typescript tests",
+  "scripts": {
+    "test": "npx playwright test",
+    "lint": "eslint --cache --fix"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.45.1",
+    "@types/supertest": "2.0.14",
+    "typescript": "5.3.3",
+    "@types/node": "18.0.0",
+    "dotenv": "16.0.0",
+    "eslint": "8.56.0"
+  }
+}
